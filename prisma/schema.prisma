@@ -1,0 +1,31 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+enum Role {
+  candidate
+  recruiter
+  admin
+}
+
+model Profile {
+  id         String   @id @default(uuid())
+  firstName  String?  @map("first_name")
+  lastName   String?  @map("last_name")
+  location   String?
+  avatarUrl  String?  @map("avatar_url")
+  role       Role     @default(candidate)
+  locale     String   @default("en")
+  theme      String   @default("light")
+  version    Int      @default(1)
+  createdAt  DateTime @default(now()) @map("created_at")
+  updatedAt  DateTime @updatedAt @map("updated_at")
+
+  @@map("profiles")
+}
