@@ -15,7 +15,7 @@ enum Role {
 }
 
 model Profile {
-  id         String   @id @default(uuid())
+  id         String   @id @db.Uuid
   firstName  String?  @map("first_name")
   lastName   String?  @map("last_name")
   location   String?
