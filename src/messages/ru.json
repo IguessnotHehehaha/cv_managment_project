@@ -1,0 +1,246 @@
+{
+  "nav": {
+    "positions": "Вакансии",
+    "myProfile": "Мой профиль",
+    "attributes": "Атрибуты",
+    "admin": "Админ",
+    "signIn": "Войти"
+  },
+  "common": {
+    "save": "Сохранить",
+    "cancel": "Отмена",
+    "delete": "Удалить",
+    "edit": "Редактировать",
+    "selectedCount": "Выбрано: {count}",
+    "noSelection": "Ничего не выбрано",
+    "choose": "Выбрать...",
+    "status": "Статус"
+  },
+  "home": {
+    "statCvsLast24h": "Резюме за 24ч",
+    "statPositions": "Вакансии",
+    "statCandidates": "Кандидаты",
+    "statRecruiters": "Рекрутеры",
+    "statTotalCvs": "Всего резюме",
+    "latestPositions": "Последние вакансии",
+    "mostPopularPositions": "Популярные вакансии",
+    "tagCloud": "Облако тегов",
+    "cvsCount": "Резюме: {count}"
+  },
+  "login": {
+    "title": "Войти",
+    "continueWithGoogle": "Продолжить с Google",
+    "continueWithGitHub": "Продолжить с GitHub",
+    "or": "или",
+    "emailPlaceholder": "Email",
+    "passwordPlaceholder": "Пароль",
+    "createAccount": "Создать аккаунт",
+    "signIn": "Войти",
+    "switchToSignIn": "Уже есть аккаунт? Войти",
+    "switchToSignUp": "Нет аккаунта? Зарегистрироваться"
+  },
+  "search": {
+    "placeholder": "Поиск по вакансиям, резюме..."
+  },
+  "themeToggle": {
+    "ariaLabel": "Переключить тему"
+  },
+  "mobileNav": {
+    "menuAriaLabel": "Меню"
+  },
+  "positions": {
+    "browse": {
+      "title": "Открытые вакансии",
+      "clearFilter": "Сбросить фильтр: {tag} ×"
+    },
+    "manage": {
+      "title": "Вакансии",
+      "newPosition": "Новая вакансия",
+      "duplicate": "Дублировать",
+      "exportCsv": "Экспорт CSV"
+    },
+    "columns": {
+      "title": "Название",
+      "company": "Компания",
+      "level": "Уровень",
+      "visibility": "Видимость",
+      "attributes": "Атрибуты"
+    },
+    "form": {
+      "editTitle": "Редактировать вакансию",
+      "newTitle": "Новая вакансия",
+      "titlePlaceholder": "Название",
+      "descriptionPlaceholder": "Краткое описание",
+      "companyPlaceholder": "Компания (необязательно)",
+      "noLevel": "Без уровня",
+      "junior": "Junior",
+      "middle": "Middle",
+      "senior": "Senior",
+      "cLevel": "C-level",
+      "public": "Публичная",
+      "restricted": "Ограниченная",
+      "projectTagsLabel": "Теги проектов",
+      "projectTagsPlaceholder": "например, react, node, postgres",
+      "maxProjectsLabel": "Проектов требуется в резюме",
+      "attributesLabel": "Атрибуты в сгенерированных резюме",
+      "accessRulesLabel": "Правила доступа"
+    },
+    "detail": {
+      "whatThisRoleLooksAt": "На что смотрят в этой роли",
+      "discussion": "Обсуждение"
+    }
+  },
+  "candidateProfile": {
+    "publishedCvs": "Опубликованные резюме",
+    "noPublishedCvs": "Опубликованных резюме пока нет."
+  },
+  "profile": {
+    "tabs": {
+      "me": "Я",
+      "info": "Инфо",
+      "projects": "Проекты",
+      "cvs": "Резюме"
+    },
+    "me": {
+      "title": "Я",
+      "saving": "Сохранение...",
+      "saved": "Сохранено",
+      "conflict": "Обновлено в другом месте — загружены последние данные",
+      "loading": "Загрузка...",
+      "noPhoto": "Нет фото",
+      "changePhoto": "Изменить фото",
+      "uploadPhoto": "Загрузить фото",
+      "firstNameLabel": "Имя",
+      "lastNameLabel": "Фамилия",
+      "locationLabel": "Местоположение"
+    },
+    "info": {
+      "title": "Инфо",
+      "addAttribute": "+ Добавить атрибут",
+      "doneAdding": "Готово",
+      "searchPlaceholder": "Поиск атрибутов...",
+      "recentlyUsed": "Недавно использованные",
+      "noRecent": "Недавно использованных атрибутов пока нет",
+      "noMatches": "Совпадений нет",
+      "noAttributes": "Атрибуты пока не добавлены."
+    },
+    "projects": {
+      "title": "Проекты",
+      "addProject": "+ Добавить проект",
+      "editTitle": "Редактировать проект",
+      "newTitle": "Новый проект",
+      "namePlaceholder": "Название проекта",
+      "present": "по настоящее время",
+      "noProjects": "Проектов пока нет."
+    },
+    "cvs": {
+      "title": "Резюме",
+      "newCv": "+ Новое резюме"
+    }
+  },
+  "attributes": {
+    "title": "Библиотека атрибутов",
+    "newAttribute": "Новый атрибут",
+    "searchPlaceholder": "Поиск по началу названия...",
+    "columns": {
+      "name": "Название",
+      "category": "Категория",
+      "type": "Тип",
+      "description": "Описание"
+    },
+    "categories": {
+      "all": "все",
+      "certification": "сертификация",
+      "domain_knowledge": "знание предметной области",
+      "personal_information": "личная информация",
+      "soft_skills": "гибкие навыки"
+    },
+    "form": {
+      "editTitle": "Редактировать атрибут",
+      "newTitle": "Новый атрибут",
+      "namePlaceholder": "Название",
+      "categoryCertification": "Сертификация",
+      "categoryDomainKnowledge": "Знание предметной области",
+      "categoryPersonalInformation": "Личная информация",
+      "categorySoftSkills": "Гибкие навыки",
+      "maxLengthPlaceholder": "Макс. длина (необязательно)",
+      "regexPlaceholder": "Регулярное выражение (необязательно)",
+      "minPlaceholder": "Мин. (необязательно)",
+      "maxPlaceholder": "Макс. (необязательно)",
+      "addOption": "+ Добавить вариант",
+      "descriptionPlaceholder": "Описание"
+    }
+  },
+  "admin": {
+    "users": {
+      "title": "Пользователи",
+      "columns": {
+        "name": "Имя",
+        "email": "Email",
+        "role": "Роль",
+        "status": "Статус"
+      },
+      "blocked": "Заблокирован",
+      "active": "Активен",
+      "roleCandidate": "Кандидат",
+      "roleRecruiter": "Рекрутер",
+      "roleAdmin": "Админ",
+      "block": "Заблокировать",
+      "unblock": "Разблокировать"
+    }
+  },
+  "cv": {
+    "relevantProjects": "Релевантные проекты",
+    "noMatchingProjects": "Подходящих проектов нет.",
+    "completeHint": "Заполните все поля выше — публикация станет доступна, когда не останется красных полей.",
+    "publish": "Опубликовать",
+    "unpublish": "Снять с публикации",
+    "liked": "Нравится",
+    "like": "Нравится",
+    "notProvided": "Не указано"
+  },
+  "discussion": {
+    "noDiscussion": "Обсуждений пока нет.",
+    "placeholder": "Написать комментарий (поддерживается Markdown)...",
+    "post": "Отправить"
+  },
+  "markdownField": {
+    "write": "Написать",
+    "preview": "Предпросмотр",
+    "placeholder": "Поддерживается Markdown...",
+    "nothingToPreview": "*Пока нечего предпросматривать*"
+  },
+  "tagInput": {
+    "placeholder": "Добавить тег технологии..."
+  },
+  "positionCvList": {
+    "title": "Отправленные резюме",
+    "columns": {
+      "candidate": "Кандидат",
+      "status": "Статус",
+      "likes": "Лайки"
+    },
+    "noCvs": "Резюме пока не отправлены."
+  },
+  "accessRuleBuilder": {
+    "hint": "Кандидаты должны соответствовать ВСЕМ правилам ниже, чтобы получить доступ к этой вакансии.",
+    "checked": "отмечено",
+    "unchecked": "не отмечено",
+    "valuePlaceholder": "Значение",
+    "addRule": "+ Добавить правило"
+  },
+  "attributePicker": {
+    "searchPlaceholder": "Поиск атрибутов по названию...",
+    "recentlyUsed": "Недавно использованные",
+    "noRecent": "Недавно использованных атрибутов пока нет",
+    "noMatches": "Совпадающих атрибутов нет",
+    "selectedInOrder": "Выбрано, в порядке резюме:",
+    "none": "Пока ничего",
+    "moveUpAriaLabel": "Переместить вверх",
+    "moveDownAriaLabel": "Переместить вниз",
+    "removeAriaLabel": "Удалить"
+  },
+  "dataTable": {
+    "noResults": "Нет результатов"
+  }
+}

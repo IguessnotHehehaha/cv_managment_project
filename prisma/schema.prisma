@@ -27,5 +27,225 @@ model Profile {
   createdAt  DateTime @default(now()) @map("created_at")
   updatedAt  DateTime @updatedAt @map("updated_at")
 
+
+  email     String?
+  isBlocked Boolean @default(false) @map("is_blocked")
+
+
+  attributeValues ProfileAttributeValue[]
+  projects Project[]
+  cvs Cv[]
+  posts Post[]
+  likesGiven Like[]
+  searchVector Unsupported("tsvector")? @map("search_vector")
+  attributeUsages AttributeUsage[]
+
   @@map("profiles")
+}
+
+enum AttributeCategory {
+  certification
+  domain_knowledge
+  personal_information
+  soft_skills
+}
+
+enum AttributeDataType {
+  string
+  text
+  image
+  numeric
+  date
+  period
+  boolean
+  dropdown
+}
+
+model Attribute {
+  id          String            @id @default(uuid()) @db.Uuid
+  name        String            @unique
+  category    AttributeCategory
+  description String
+  dataType    AttributeDataType @map("data_type")
+  config      Json              @default("{}")
+  isActive    Boolean           @default(true) @map("is_active")
+  version     Int               @default(1)
+  createdAt   DateTime          @default(now()) @map("created_at")
+  updatedAt   DateTime          @updatedAt @map("updated_at")
+
+  positionAttributes PositionAttribute[]
+  accessRules PositionAccessRule[]
+  attributeValues ProfileAttributeValue[]
+  usages AttributeUsage[]
+
+  @@map("attributes")
+}
+
+enum PositionVisibility {
+  public
+  restricted
+}
+
+enum PositionLevel {
+  junior
+  middle
+  senior
+  c_level
+}
+
+model Position {
+  id          String             @id @default(uuid()) @db.Uuid
+  title       String
+  description String
+  company     String?
+  level       PositionLevel?
+  visibility  PositionVisibility @default(public)
+  maxProjects Int                @default(3) @map("max_projects")
+  projectTags String[]           @map("project_tags")
+  version     Int                @default(1)
+  createdAt   DateTime           @default(now()) @map("created_at")
+  updatedAt   DateTime           @updatedAt @map("updated_at")
+
+  positionAttributes PositionAttribute[]
+  accessRules PositionAccessRule[]
+  cvs Cv[]
+  posts Post[]
+  searchVector Unsupported("tsvector")? @map("search_vector")
+
+  @@map("positions")
+}
+
+model PositionAttribute {
+  positionId  String @map("position_id") @db.Uuid
+  attributeId String @map("attribute_id") @db.Uuid
+  sortOrder   Int    @default(0) @map("sort_order")
+
+  position  Position  @relation(fields: [positionId], references: [id], onDelete: Cascade)
+  attribute Attribute @relation(fields: [attributeId], references: [id])
+
+  @@id([positionId, attributeId])
+  @@map("position_attributes")
+}
+
+model PositionAccessRule {
+  id          String @id @default(uuid()) @db.Uuid
+  positionId  String @map("position_id") @db.Uuid
+  attributeId String @map("attribute_id") @db.Uuid
+  operator    String
+  value       String
+
+  position  Position  @relation(fields: [positionId], references: [id], onDelete: Cascade)
+  attribute Attribute @relation(fields: [attributeId], references: [id])
+
+  @@map("position_access_rules")
+}
+
+model ProfileAttributeValue {
+  profileId   String   @map("profile_id") @db.Uuid
+  attributeId String   @map("attribute_id") @db.Uuid
+  value       Json?
+  version     Int      @default(1)
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  profile   Profile   @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  attribute Attribute @relation(fields: [attributeId], references: [id])
+
+  @@id([profileId, attributeId])
+  @@map("profile_attribute_values")
+}
+
+model Project {
+  id          String    @id @default(uuid()) @db.Uuid
+  profileId   String    @map("profile_id") @db.Uuid
+  name        String
+  periodStart DateTime? @map("period_start") @db.Date
+  periodEnd   DateTime? @map("period_end") @db.Date
+  description String    @default("")
+  version     Int       @default(1)
+  createdAt   DateTime  @default(now()) @map("created_at")
+  updatedAt   DateTime  @updatedAt @map("updated_at")
+
+  profile Profile        @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  tags    ProjectTagLink[]
+
+  @@map("projects")
+}
+
+model ProjectTag {
+  id   String @id @default(uuid()) @db.Uuid
+  name String @unique
+
+  projects ProjectTagLink[]
+
+  @@map("project_tags")
+}
+
+model ProjectTagLink {
+  projectId String @map("project_id") @db.Uuid
+  tagId     String @map("tag_id") @db.Uuid
+
+  project Project    @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  tag     ProjectTag @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+  @@id([projectId, tagId])
+  @@map("project_tag_links")
+}
+
+enum CvStatus {
+  draft
+  published
+}
+
+model Cv {
+  id         String   @id @default(uuid()) @db.Uuid
+  profileId  String   @map("profile_id") @db.Uuid
+  positionId String   @map("position_id") @db.Uuid
+  status     CvStatus @default(draft)
+  version    Int      @default(1)
+  createdAt  DateTime @default(now()) @map("created_at")
+  updatedAt  DateTime @updatedAt @map("updated_at")
+
+  profile  Profile  @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  position Position @relation(fields: [positionId], references: [id])
+  likes Like[]
+
+  @@unique([profileId, positionId])
+  @@map("cvs")
+}
+
+model Like {
+  cvId        String   @map("cv_id") @db.Uuid
+  recruiterId String   @map("recruiter_id") @db.Uuid
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  cv        Cv      @relation(fields: [cvId], references: [id], onDelete: Cascade)
+  recruiter Profile @relation(fields: [recruiterId], references: [id], onDelete: Cascade)
+
+  @@id([cvId, recruiterId])
+  @@map("likes")
+}
+
+model Post {
+  id         String   @id @default(uuid()) @db.Uuid
+  positionId String   @map("position_id") @db.Uuid
+  authorId   String   @map("author_id") @db.Uuid
+  content    String
+  createdAt  DateTime @default(now()) @map("created_at")
+
+  position Position @relation(fields: [positionId], references: [id], onDelete: Cascade)
+  author   Profile  @relation(fields: [authorId], references: [id], onDelete: Cascade)
+
+  @@map("posts")
+}
+
+model AttributeUsage {
+  profileId   String   @map("profile_id") @db.Uuid
+  attributeId String   @map("attribute_id") @db.Uuid
+  lastUsedAt  DateTime @map("last_used_at")
+
+  profile   Profile   @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  attribute Attribute @relation(fields: [attributeId], references: [id], onDelete: Cascade)
+
+  @@id([profileId, attributeId])
+  @@map("attribute_usage")
 }

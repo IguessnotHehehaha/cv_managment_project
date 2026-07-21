@@ -1,0 +1,246 @@
+{
+  "nav": {
+    "positions": "Positions",
+    "myProfile": "My Profile",
+    "attributes": "Attributes",
+    "admin": "Admin",
+    "signIn": "Sign in"
+  },
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "selectedCount": "{count} selected",
+    "noSelection": "No selection",
+    "choose": "Choose...",
+    "status": "Status"
+  },
+  "home": {
+    "statCvsLast24h": "CVs, last 24h",
+    "statPositions": "Positions",
+    "statCandidates": "Candidates",
+    "statRecruiters": "Recruiters",
+    "statTotalCvs": "Total CVs",
+    "latestPositions": "Latest positions",
+    "mostPopularPositions": "Most popular positions",
+    "tagCloud": "Tag cloud",
+    "cvsCount": "{count} CVs"
+  },
+  "login": {
+    "title": "Sign in",
+    "continueWithGoogle": "Continue with Google",
+    "continueWithGitHub": "Continue with GitHub",
+    "or": "or",
+    "emailPlaceholder": "Email",
+    "passwordPlaceholder": "Password",
+    "createAccount": "Create account",
+    "signIn": "Sign in",
+    "switchToSignIn": "Already have an account? Sign in",
+    "switchToSignUp": "Don't have an account? Sign up"
+  },
+  "search": {
+    "placeholder": "Search positions, CVs..."
+  },
+  "themeToggle": {
+    "ariaLabel": "Toggle theme"
+  },
+  "mobileNav": {
+    "menuAriaLabel": "Menu"
+  },
+  "positions": {
+    "browse": {
+      "title": "Open positions",
+      "clearFilter": "Clear filter: {tag} ×"
+    },
+    "manage": {
+      "title": "Positions",
+      "newPosition": "New position",
+      "duplicate": "Duplicate",
+      "exportCsv": "Export CSV"
+    },
+    "columns": {
+      "title": "Title",
+      "company": "Company",
+      "level": "Level",
+      "visibility": "Visibility",
+      "attributes": "Attributes"
+    },
+    "form": {
+      "editTitle": "Edit position",
+      "newTitle": "New position",
+      "titlePlaceholder": "Title",
+      "descriptionPlaceholder": "Short description",
+      "companyPlaceholder": "Company (optional)",
+      "noLevel": "No level",
+      "junior": "Junior",
+      "middle": "Middle",
+      "senior": "Senior",
+      "cLevel": "C-level",
+      "public": "Public",
+      "restricted": "Restricted",
+      "projectTagsLabel": "Project tags",
+      "projectTagsPlaceholder": "e.g. react, node, postgres",
+      "maxProjectsLabel": "Projects required in CV",
+      "attributesLabel": "Attributes shown in generated CVs",
+      "accessRulesLabel": "Access rules"
+    },
+    "detail": {
+      "whatThisRoleLooksAt": "What this role looks at",
+      "discussion": "Discussion"
+    }
+  },
+  "candidateProfile": {
+    "publishedCvs": "Published CVs",
+    "noPublishedCvs": "No published CVs yet."
+  },
+  "profile": {
+    "tabs": {
+      "me": "Me",
+      "info": "Info",
+      "projects": "Projects",
+      "cvs": "CVs"
+    },
+    "me": {
+      "title": "Me",
+      "saving": "Saving...",
+      "saved": "Saved",
+      "conflict": "Updated elsewhere — reloaded latest",
+      "loading": "Loading...",
+      "noPhoto": "No photo",
+      "changePhoto": "Change photo",
+      "uploadPhoto": "Upload photo",
+      "firstNameLabel": "First name",
+      "lastNameLabel": "Last name",
+      "locationLabel": "Location"
+    },
+    "info": {
+      "title": "Info",
+      "addAttribute": "+ Add attribute",
+      "doneAdding": "Done adding",
+      "searchPlaceholder": "Search attributes...",
+      "recentlyUsed": "Recently used",
+      "noRecent": "No recently used attributes yet",
+      "noMatches": "No matches",
+      "noAttributes": "No attributes added yet."
+    },
+    "projects": {
+      "title": "Projects",
+      "addProject": "+ Add project",
+      "editTitle": "Edit project",
+      "newTitle": "New project",
+      "namePlaceholder": "Project name",
+      "present": "present",
+      "noProjects": "No projects yet."
+    },
+    "cvs": {
+      "title": "CVs",
+      "newCv": "+ New CV"
+    }
+  },
+  "attributes": {
+    "title": "Attribute Library",
+    "newAttribute": "New attribute",
+    "searchPlaceholder": "Search by name prefix...",
+    "columns": {
+      "name": "Name",
+      "category": "Category",
+      "type": "Type",
+      "description": "Description"
+    },
+    "categories": {
+      "all": "all",
+      "certification": "certification",
+      "domain_knowledge": "domain knowledge",
+      "personal_information": "personal information",
+      "soft_skills": "soft skills"
+    },
+    "form": {
+      "editTitle": "Edit attribute",
+      "newTitle": "New attribute",
+      "namePlaceholder": "Name",
+      "categoryCertification": "Certification",
+      "categoryDomainKnowledge": "Domain Knowledge",
+      "categoryPersonalInformation": "Personal Information",
+      "categorySoftSkills": "Soft Skills",
+      "maxLengthPlaceholder": "Max length (optional)",
+      "regexPlaceholder": "Regex pattern (optional)",
+      "minPlaceholder": "Min (optional)",
+      "maxPlaceholder": "Max (optional)",
+      "addOption": "+ Add option",
+      "descriptionPlaceholder": "Description"
+    }
+  },
+  "admin": {
+    "users": {
+      "title": "Users",
+      "columns": {
+        "name": "Name",
+        "email": "Email",
+        "role": "Role",
+        "status": "Status"
+      },
+      "blocked": "Blocked",
+      "active": "Active",
+      "roleCandidate": "Candidate",
+      "roleRecruiter": "Recruiter",
+      "roleAdmin": "Admin",
+      "block": "Block",
+      "unblock": "Unblock"
+    }
+  },
+  "cv": {
+    "relevantProjects": "Relevant projects",
+    "noMatchingProjects": "No matching projects.",
+    "completeHint": "Fill in every field above — publishing unlocks once nothing's red.",
+    "publish": "Publish",
+    "unpublish": "Unpublish",
+    "liked": "Liked",
+    "like": "Like",
+    "notProvided": "Not provided"
+  },
+  "discussion": {
+    "noDiscussion": "No discussion yet.",
+    "placeholder": "Write a comment (Markdown supported)...",
+    "post": "Post"
+  },
+  "markdownField": {
+    "write": "Write",
+    "preview": "Preview",
+    "placeholder": "Markdown supported...",
+    "nothingToPreview": "*Nothing to preview yet*"
+  },
+  "tagInput": {
+    "placeholder": "Add a technology tag..."
+  },
+  "positionCvList": {
+    "title": "Submitted CVs",
+    "columns": {
+      "candidate": "Candidate",
+      "status": "Status",
+      "likes": "Likes"
+    },
+    "noCvs": "No CVs submitted yet."
+  },
+  "accessRuleBuilder": {
+    "hint": "Candidates must satisfy ALL rules below to access this position.",
+    "checked": "checked",
+    "unchecked": "unchecked",
+    "valuePlaceholder": "Value",
+    "addRule": "+ Add rule"
+  },
+  "attributePicker": {
+    "searchPlaceholder": "Search attributes by name...",
+    "recentlyUsed": "Recently used",
+    "noRecent": "No recently used attributes yet",
+    "noMatches": "No matching attributes",
+    "selectedInOrder": "Selected, in CV order:",
+    "none": "None yet",
+    "moveUpAriaLabel": "Move up",
+    "moveDownAriaLabel": "Move down",
+    "removeAriaLabel": "Remove"
+  },
+  "dataTable": {
+    "noResults": "No results"
+  }
+}

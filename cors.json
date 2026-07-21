@@ -1,0 +1,8 @@
+[
+  {
+    "origin": ["http://localhost:3001", "https://cv-managment-project.onrender.com"],
+    "method": ["PUT", "GET"],
+    "responseHeader": ["Content-Type"],
+    "maxAgeSeconds": 3600
+  }
+]

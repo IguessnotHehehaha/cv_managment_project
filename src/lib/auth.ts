@@ -5,6 +5,7 @@ import { prisma } from '@/lib/prisma'
 type AppClaims = {
     sub: string
     user_role: 'candidate' | 'recruiter' | 'admin'
+    user_blocked: boolean
 }
 
 function isAppClaims(claims: unknown): claims is AppClaims {
@@ -12,7 +13,8 @@ function isAppClaims(claims: unknown): claims is AppClaims {
     const c = claims as Record<string, unknown>
     return (
         typeof c.sub === 'string' &&
-        (c.user_role === 'candidate' || c.user_role === 'recruiter' || c.user_role === 'admin')
+        (c.user_role === 'candidate' || c.user_role === 'recruiter' || c.user_role === 'admin') &&
+        typeof c.user_blocked === 'boolean'
     )
 }
 
@@ -20,7 +22,9 @@ export const getCachedClaims = cache(async (): Promise<AppClaims | null> => {
     const supabase = await createClient()
     const { data, error } = await supabase.auth.getClaims()
     if (error || !data) return null
-    return isAppClaims(data.claims) ? data.claims : null
+    if (!isAppClaims(data.claims)) return null
+    if (data.claims.user_blocked) return null
+    return data.claims
 })
 
 export async function requireRole(allowed: Array<AppClaims['user_role']>) {
