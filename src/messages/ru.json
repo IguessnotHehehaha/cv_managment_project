@@ -4,7 +4,8 @@
     "myProfile": "Мой профиль",
     "attributes": "Атрибуты",
     "admin": "Админ",
-    "signIn": "Войти"
+    "signIn": "Войти",
+    "signOut": "Выйти"
   },
   "common": {
     "save": "Сохранить",
@@ -108,6 +109,7 @@
       "conflict": "Обновлено в другом месте — загружены последние данные",
       "loading": "Загрузка...",
       "noPhoto": "Нет фото",
+      "avatarAlt": "Аватар",
       "changePhoto": "Изменить фото",
       "uploadPhoto": "Загрузить фото",
       "firstNameLabel": "Имя",
@@ -242,5 +244,31 @@
   },
   "dataTable": {
     "noResults": "Нет результатов"
+  },
+  "passwordManager": {
+    "changePassword": "Изменить пароль",
+    "setPassword": "Задать пароль",
+    "changeTitle": "Изменить пароль",
+    "setTitle": "Задать пароль",
+    "currentPasswordPlaceholder": "Текущий пароль",
+    "newPasswordPlaceholder": "Новый пароль",
+    "confirmNewPasswordPlaceholder": "Подтвердите новый пароль",
+    "confirmPasswordPlaceholder": "Подтвердите пароль",
+    "cancel": "Отмена",
+    "close": "Закрыть",
+    "updatePassword": "Обновить пароль",
+    "updating": "Обновление...",
+    "setPasswordButton": "Задать пароль",
+    "saving": "Сохранение...",
+    "updateSuccess": "Пароль успешно обновлён.",
+    "setSuccess": "Пароль задан. Теперь вы также можете входить с {email} и этим паролем.",
+    "setInfoBanner": "Сейчас вход в ваш аккаунт возможен только через Google/GitHub. Задав пароль, вы сможете также входить напрямую по email.",
+    "errors": {
+      "newPasswordTooShort": "Новый пароль должен содержать не менее 6 символов",
+      "newPasswordsDontMatch": "Новые пароли не совпадают",
+      "passwordTooShort": "Пароль должен содержать не менее 6 символов",
+      "passwordsDontMatch": "Пароли не совпадают",
+      "currentPasswordIncorrect": "Текущий пароль неверен"
+    }
   }
 }

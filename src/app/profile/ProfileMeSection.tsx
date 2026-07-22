@@ -82,7 +82,7 @@ export function ProfileMeSection() {
 
             <div className="flex items-center gap-4">
                 {avatarUrl ? (
-                    <img src={avatarUrl} alt="Avatar" className="h-16 w-16 rounded-full object-cover" />
+                    <img src={avatarUrl} alt={t('avatarAlt')} className="h-16 w-16 rounded-full object-cover" />
                 ) : (
                     <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gray-200 text-xs text-gray-400 dark:bg-gray-700">
                         {t('noPhoto')}

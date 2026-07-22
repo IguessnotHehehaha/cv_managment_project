@@ -1,10 +1,12 @@
 'use client'
 import { useEffect, useState } from 'react'
+import { useTranslations } from 'next-intl'
 import { createClient } from '@/lib/supabase/client'
 import { SetPasswordModal } from './SetPasswordModal'
 import { ChangePasswordModal } from './ChangePasswordModal'
 
 export function PasswordManager() {
+    const t = useTranslations('passwordManager')
     const [email, setEmail] = useState<string | null>(null)
     const [hasPassword, setHasPassword] = useState<boolean | null>(null)
     const [open, setOpen] = useState(false)
@@ -22,7 +24,7 @@ export function PasswordManager() {
     return (
         <>
             <button onClick={() => setOpen(true)} className="text-sm text-blue-600 dark:text-blue-400">
-                {hasPassword ? 'Change password' : 'Set a password'}
+                {hasPassword ? t('changePassword') : t('setPassword')}
             </button>
 
             {open && (

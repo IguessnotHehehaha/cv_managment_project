@@ -4,7 +4,8 @@
     "myProfile": "My Profile",
     "attributes": "Attributes",
     "admin": "Admin",
-    "signIn": "Sign in"
+    "signIn": "Sign in",
+    "signOut": "Sign out"
   },
   "common": {
     "save": "Save",
@@ -108,6 +109,7 @@
       "conflict": "Updated elsewhere — reloaded latest",
       "loading": "Loading...",
       "noPhoto": "No photo",
+      "avatarAlt": "Avatar",
       "changePhoto": "Change photo",
       "uploadPhoto": "Upload photo",
       "firstNameLabel": "First name",
@@ -242,5 +244,31 @@
   },
   "dataTable": {
     "noResults": "No results"
+  },
+  "passwordManager": {
+    "changePassword": "Change password",
+    "setPassword": "Set a password",
+    "changeTitle": "Change password",
+    "setTitle": "Set a password",
+    "currentPasswordPlaceholder": "Current password",
+    "newPasswordPlaceholder": "New password",
+    "confirmNewPasswordPlaceholder": "Confirm new password",
+    "confirmPasswordPlaceholder": "Confirm password",
+    "cancel": "Cancel",
+    "close": "Close",
+    "updatePassword": "Update password",
+    "updating": "Updating...",
+    "setPasswordButton": "Set password",
+    "saving": "Saving...",
+    "updateSuccess": "Password updated successfully.",
+    "setSuccess": "Password set. You can now also sign in with {email} and this password.",
+    "setInfoBanner": "Your account currently only signs in via Google/GitHub. Setting a password lets you also sign in directly with your email.",
+    "errors": {
+      "newPasswordTooShort": "New password must be at least 6 characters",
+      "newPasswordsDontMatch": "New passwords do not match",
+      "passwordTooShort": "Password must be at least 6 characters",
+      "passwordsDontMatch": "Passwords do not match",
+      "currentPasswordIncorrect": "Current password is incorrect"
+    }
   }
 }
