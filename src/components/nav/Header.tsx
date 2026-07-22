@@ -5,6 +5,7 @@ import { ThemeToggle } from './ThemeToggle'
 import { HeaderSearch } from './HeaderSearch'
 import { LocaleSwitcher } from './LocaleSwitcher'
 import { MobileNav } from './MobileNav'
+import { SignOutButton } from './SignOutButton'
 
 export async function Header() {
     const claims = await getCachedClaims()
@@ -30,7 +31,11 @@ export async function Header() {
                 <div className="hidden items-center gap-2 sm:flex">
                     <LocaleSwitcher />
                     <ThemeToggle />
-                    {!claims && <Link href="/login" className="text-sm font-medium text-blue-600 dark:text-blue-400">{t('signIn')}</Link>}
+                    {claims ? <SignOutButton /> : (
+                        <Link href="/login" className="text-sm font-medium text-blue-600 dark:text-blue-400">
+                            {t('signIn')}
+                        </Link>
+                    )}
                 </div>
 
                 <MobileNav links={links} isAuthed={!!claims} />

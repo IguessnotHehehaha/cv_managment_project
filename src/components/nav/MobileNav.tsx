@@ -6,6 +6,7 @@ import { useTranslations } from 'next-intl'
 import { HeaderSearch } from './HeaderSearch'
 import { LocaleSwitcher } from './LocaleSwitcher'
 import { ThemeToggle } from './ThemeToggle'
+import { SignOutButton } from './SignOutButton'
 
 export function MobileNav({ links, isAuthed }: { links: React.ReactNode; isAuthed: boolean }) {
     const [open, setOpen] = useState(false)
@@ -24,7 +25,7 @@ export function MobileNav({ links, isAuthed }: { links: React.ReactNode; isAuthe
                         <LocaleSwitcher />
                         <ThemeToggle />
                     </div>
-                    {!isAuthed && <Link href="/login" className="block text-sm font-medium text-blue-600">{tNav('signIn')}</Link>}
+                    {isAuthed ? <SignOutButton /> : <Link href="/login" className="block text-sm font-medium text-blue-600">{tNav('signIn')}</Link>}
                 </div>
             )}
         </div>
