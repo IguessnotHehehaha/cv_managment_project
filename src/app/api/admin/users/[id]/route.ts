@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
 import { userService } from '@/services/UserService'
 import { requireRole } from '@/lib/auth'
-import { ForbiddenError, NotFoundError } from '@/services/errors'
+import { NotFoundError } from '@/services/errors'
 import { z } from 'zod'
 
 const schema = z.object({
@@ -17,14 +17,9 @@ export async function PATCH(request: Request, { params }: { params: Promise<{ id
     const body = schema.safeParse(await request.json())
     if (!body.success) return NextResponse.json({ error: body.error.flatten() }, { status: 400 })
 
-    try {
-        if (body.data.role) await userService.setRole(id, body.data.role)
-        if (body.data.isBlocked !== undefined) await userService.setBlocked(id, claims.sub, body.data.isBlocked)
-        return NextResponse.json({ ok: true })
-    } catch (e) {
-        if (e instanceof ForbiddenError) return NextResponse.json({ error: e.message }, { status: 403 })
-        throw e
-    }
+    if (body.data.role) await userService.setRole(id, body.data.role)
+    if (body.data.isBlocked !== undefined) await userService.setBlocked(id, body.data.isBlocked)
+    return NextResponse.json({ ok: true })
 }
 
 export async function DELETE(request: Request, { params }: { params: Promise<{ id: string }> }) {
@@ -33,10 +28,9 @@ export async function DELETE(request: Request, { params }: { params: Promise<{ i
 
     const { id } = await params
     try {
-        await userService.delete(id, claims.sub)
+        await userService.delete(id)
         return NextResponse.json({ ok: true })
     } catch (e) {
-        if (e instanceof ForbiddenError) return NextResponse.json({ error: e.message }, { status: 403 })
         if (e instanceof NotFoundError) return NextResponse.json({ error: e.message }, { status: 404 })
         throw e
     }

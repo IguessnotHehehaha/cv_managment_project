@@ -1,37 +1,33 @@
 'use client'
 import { useEffect, useState } from 'react'
-import { useTranslations } from 'next-intl'
 import { createClient } from '@/lib/supabase/client'
 import { SetPasswordModal } from './SetPasswordModal'
 import { ChangePasswordModal } from './ChangePasswordModal'
 
 export function PasswordManager() {
-    const t = useTranslations('passwordManager')
     const [email, setEmail] = useState<string | null>(null)
     const [hasPassword, setHasPassword] = useState<boolean | null>(null)
     const [open, setOpen] = useState(false)
 
-    useEffect(() => {
-        createClient().auth.getUser().then(({ data }) => {
-            setEmail(data.user?.email ?? null)
-            const providers = data.user?.app_metadata?.providers as string[] | undefined
-            setHasPassword(!!providers?.includes('email'))
-        })
-    }, [])
+    const check = async () => {
+        const { data } = await createClient().auth.getUser()
+        setEmail(data.user?.email ?? null)
+        const providers = data.user?.app_metadata?.providers as string[] | undefined
+        setHasPassword(!!providers?.includes('email'))
+    }
+
+    useEffect(() => { check() }, [])
+
+    const close = () => { setOpen(false); check() }
 
     if (hasPassword === null || !email) return null
 
     return (
         <>
             <button onClick={() => setOpen(true)} className="text-sm text-blue-600 dark:text-blue-400">
-                {hasPassword ? t('changePassword') : t('setPassword')}
+                {hasPassword ? 'Change password' : 'Set a password'}
             </button>
-
-            {open && (
-                hasPassword
-                    ? <ChangePasswordModal email={email} onClose={() => setOpen(false)} />
-                    : <SetPasswordModal email={email} onClose={() => setOpen(false)} />
-            )}
+            {open && (hasPassword ? <ChangePasswordModal email={email} onClose={close} /> : <SetPasswordModal email={email} onClose={close} />)}
         </>
     )
 }

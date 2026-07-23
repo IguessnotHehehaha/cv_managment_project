@@ -23,6 +23,7 @@ export function ProfileMeSection() {
     const [version, setVersion] = useState(1)
     const [avatarUrl, setAvatarUrl] = useState<string | null>(null)
     const [status, setStatus] = useState<'idle' | 'saving' | 'saved' | 'conflict'>('idle')
+    const [ready, setReady] = useState(false)
 
     useEffect(() => {
         if (profile && !initialized.current) {
@@ -32,6 +33,7 @@ export function ProfileMeSection() {
             setVersion(profile.version)
             setAvatarUrl(profile.avatarUrl)
             initialized.current = true
+            setReady(true)
         }
     }, [profile])
 
@@ -54,7 +56,7 @@ export function ProfileMeSection() {
         setVersion(saved.version)
         setStatus('saved')
         queryClient.invalidateQueries({ queryKey: ['profile', 'me'] })
-    }, 7000)
+    }, { intervalMs: 7000, enabled: ready })
 
     const handleAvatarUpload = async (file: File) => {
         const url = await uploadFile(file, 'avatars')

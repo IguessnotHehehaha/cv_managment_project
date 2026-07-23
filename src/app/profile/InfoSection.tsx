@@ -26,6 +26,7 @@ function AddAttributeSearch({ excludeIds, onAdd }: { excludeIds: string[]; onAdd
         queryKey: ['attributes', 'recent'],
         queryFn: async () => (await fetch('/api/attributes?recent=true')).json() as Promise<Attribute[]>,
         enabled: !search,
+        staleTime: 15_000,
     })
 
     const available = results.filter((a) => !excludeIds.includes(a.id))

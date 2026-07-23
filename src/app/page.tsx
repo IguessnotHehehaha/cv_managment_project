@@ -64,6 +64,7 @@ export default async function HomePage() {
                             href={isStaff ? `/search?q=${t.name}` : `/positions?tag=${t.name}`}
                             style={{ fontSize: `${0.75 + Math.min(t.count, 10) * 0.05}rem` }}
                             className="text-blue-600 hover:underline dark:text-blue-400"
+                            prefetch = {false}
                         >
                             {t.name}
                         </Link>

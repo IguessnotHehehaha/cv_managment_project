@@ -11,6 +11,7 @@ export function SetPasswordModal({ email, onClose }: { email: string; onClose: (
     const [success, setSuccess] = useState(false)
     const [loading, setLoading] = useState(false)
 
+
     const submit = async () => {
         setError(null)
         if (newPassword.length < 6) { setError(t('errors.passwordTooShort')); return }
@@ -20,6 +21,7 @@ export function SetPasswordModal({ email, onClose }: { email: string; onClose: (
         const { error: updateError } = await createClient().auth.updateUser({ password: newPassword })
         setLoading(false)
         if (updateError) { setError(updateError.message); return }
+        await createClient().auth.refreshSession()
         setSuccess(true)
     }
 

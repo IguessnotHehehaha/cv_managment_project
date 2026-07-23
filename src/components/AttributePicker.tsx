@@ -34,6 +34,7 @@ export function AttributePicker({
         queryKey: ['attributes', 'recent'],
         queryFn: async () => (await fetch('/api/attributes?recent=true')).json() as Promise<Attribute[]>,
         enabled: !search,
+        staleTime: 15_000,
     })
 
     const selectedIds = new Set(selected.map((a) => a.id))
